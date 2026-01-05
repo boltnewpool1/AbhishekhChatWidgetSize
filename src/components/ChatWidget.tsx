@@ -204,14 +204,14 @@ const ChatWidget = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed bottom-24 right-6 z-40 w-[380px] h-[600px] max-h-[80vh] flex flex-col glass-card shadow-2xl overflow-hidden"
+            className="fixed bottom-24 right-4 sm:right-6 z-40 w-[calc(100vw-2rem)] sm:w-[380px] h-[500px] max-h-[calc(100vh-120px)] flex flex-col glass-card shadow-2xl overflow-hidden rounded-2xl"
             style={{
               boxShadow:
                 '0 0 40px hsl(185 100% 50% / 0.2), 0 0 80px hsl(270 80% 60% / 0.1)',
             }}
           >
             {/* Header */}
-            <div className="flex items-center gap-3 px-4 py-4 border-b border-border/50 bg-gradient-to-r from-primary/10 to-secondary/10">
+            <div className="flex items-center gap-3 px-3 py-3 border-b border-border/50 bg-gradient-to-r from-primary/10 to-secondary/10">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/30 flex items-center justify-center">
                 <Sparkles size={20} className="text-primary" />
               </div>
@@ -229,12 +229,12 @@ const ChatWidget = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+            <div className="flex-1 overflow-y-auto px-3 py-3 space-y-3 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
               {messages.length === 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-8"
+                  className="text-center py-6"
                 >
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/30 flex items-center justify-center">
                     <Sparkles size={28} className="text-primary" />
@@ -297,7 +297,7 @@ const ChatWidget = () => {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="px-4 pb-3 flex flex-wrap gap-2"
+                className="px-3 pb-2 flex flex-wrap gap-2"
               >
                 {FAQ_CHIPS.map((question, index) => (
                   <motion.button
@@ -318,7 +318,7 @@ const ChatWidget = () => {
               <div
                 ref={inputContainerRef}
                 onMouseMove={handleMouseMove}
-                className="relative p-4"
+                className="relative p-3"
               >
                 {/* Cursor follow glow */}
                 <motion.div
@@ -342,24 +342,24 @@ const ChatWidget = () => {
                     onKeyPress={handleKeyPress}
                     placeholder="Type your message..."
                     disabled={isLoading}
-                    className="flex-1 px-4 py-3 rounded-xl bg-background/50 border border-border/50 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
+                    className="flex-1 px-3 py-2.5 rounded-xl bg-background/50 border border-border/50 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
                     aria-label="Chat message input"
                   />
 
                   <motion.button
                     onClick={handleSend}
                     disabled={!inputValue.trim() || isLoading}
-                    className="flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
+                    className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label="Send message"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
-                    <Send size={18} className="text-background relative z-10" />
+                    <Send size={16} className="text-background relative z-10" />
                   </motion.button>
                 </div>
 
-                <p className="text-xs text-muted-foreground mt-2 text-center">
+                <p className="text-xs text-muted-foreground mt-1.5 text-center">
                   Press <kbd className="px-1.5 py-0.5 rounded bg-muted text-foreground text-xs">Enter</kbd> to send, <kbd className="px-1.5 py-0.5 rounded bg-muted text-foreground text-xs">Esc</kbd> to close
                 </p>
               </div>

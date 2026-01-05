@@ -62,11 +62,11 @@ const Navbar = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="hidden lg:block">
+        {/* <div className="hidden lg:block">
           <Button variant="glow" size="sm" asChild>
-            <a href="https://wa.me/7976106665?text=🚀%20Hello!%20I’m%20looking%20to%20build%20a%20cutting-edge%20web%20application.%20Let’s%20explore%20the%20possibilities!" target="_blank">Let's Talk</a>
+            <a href="https://wa.me/7976106665?text=🚀%20Hello!%20I'm%20looking%20to%20build%20a%20cutting-edge%20web%20application.%20Let's%20explore%20the%20possibilities!" target="_blank">Let's Talk</a>
           </Button>
-        </div>
+        </div> */}
 
         {/* Mobile Menu Button */}
         <button
@@ -101,11 +101,11 @@ const Navbar = () => {
                   {link.name}
                 </motion.a>
               ))}
-              <Button variant="glow" className="mt-4" asChild>
+              {/* <Button variant="glow" className="mt-4" asChild>
                 <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
                   Let's Talk
                 </a>
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
         )}
